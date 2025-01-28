@@ -12,7 +12,7 @@ Handler get onRequest {
           channel.sink.add(message.toString());
         },
         onDone: () {
-          channel.sink.close();
+          connectedClients.remove(channel);
         },
       );
     },
