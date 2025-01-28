@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dart_frog/dart_frog.dart';
 
-import '../ws/index.dart'; // Akses daftar `connectedClients`
+import 'websocket.dart'; // Akses daftar `connectedClients`
 
 Future<Response> onRequest(RequestContext context) async {
   // Pastikan metode request adalah POST
@@ -12,9 +12,7 @@ Future<Response> onRequest(RequestContext context) async {
   final body = await context.request.body();
   final data = jsonDecode(body);
 
-  // ignore: avoid_dynamic_calls
   final orderId = data['order_id'] as String?;
-  // ignore: avoid_dynamic_calls
   final transactionStatus = data['transaction_status'] as String?;
 
   if (orderId == null || transactionStatus == null) {
