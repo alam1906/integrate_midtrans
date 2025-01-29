@@ -11,9 +11,7 @@ Handler get onRequest {
         (message) {
           channel.sink.add(message.toString());
         },
-        onDone: () {
-          connectedClients.remove(channel);
-        },
+        onDone: () {},
       );
     },
   );
